@@ -9,8 +9,6 @@ on:
 jobs:
   build:
     name: Build Tauri App
-    permissions:
-      contents: write
     strategy:
       fail-fast: false
       matrix:
@@ -39,12 +37,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tagName: v__VERSION__
-          releaseName: 'Numerix Calculator v__VERSION__'
-          releaseBody: 'Release automática gerada pelo GitHub Actions.'
-          releaseDraft: true
-          prerelease: false
-          includeRelease: true
+          includeRelease: false
           includeDebug: false
 
       - name: Upload Windows MSI Artifact
