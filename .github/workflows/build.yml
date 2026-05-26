@@ -45,8 +45,8 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: numerix-calculator-windows-msi
-          path: src-tauri/target/release/bundle/wix/*.msi
-          if-no-files-found: ignore
+          path: src-tauri/target/release/bundle/msi/*.msi
+          if-no-files-found: error
 
       - name: Upload Windows EXE Artifact
         if: matrix.platform == 'windows-latest'
@@ -54,7 +54,7 @@ jobs:
         with:
           name: numerix-calculator-windows-exe
           path: src-tauri/target/release/bundle/nsis/*.exe
-          if-no-files-found: ignore
+          if-no-files-found: error
 
       - name: Upload macOS DMG Artifact
         if: matrix.platform == 'macos-latest'
@@ -62,7 +62,7 @@ jobs:
         with:
           name: numerix-calculator-macos-dmg
           path: src-tauri/target/release/bundle/dmg/*.dmg
-          if-no-files-found: ignore
+          if-no-files-found: error
 
       - name: Upload macOS APP Artifact
         if: matrix.platform == 'macos-latest'
@@ -70,4 +70,4 @@ jobs:
         with:
           name: numerix-calculator-macos-app
           path: src-tauri/target/release/bundle/macos/Numerix Calculator.app
-          if-no-files-found: ignore
+          if-no-files-found: error
