@@ -48,3 +48,25 @@ Para gerar o pacote de build estático final minificado e otimizado na pasta `di
 ```bash
 npm run build
 ```
+
+---
+
+## Distribuição e Instalação (Desktop)
+
+A aplicação pode ser compilada como um aplicativo desktop nativo para macOS e Windows utilizando o **Tauri v2**. Os instaladores oficiais são gerados automaticamente pelo pipeline do GitHub Actions.
+
+### macOS (Instalação e Segurança)
+
+Como a aplicação é distribuída de forma independente (sem assinatura digital paga da Apple), o macOS ativará o **Gatekeeper** na primeira execução, o que é o comportamento esperado.
+
+1. **Baixe sempre o instalador no formato `.dmg`** (evite extrair ou rodar pastas `.app` diretamente de arquivos `.zip`, pois o descompactador do macOS corrompe as permissões Unix de execução do binário interno).
+2. Dê um duplo clique no arquivo `.dmg` para montá-lo e **arraste o ícone do aplicativo para a pasta Aplicativos (Applications)**.
+3. Para abrir pela primeira vez:
+   * Clique com o **botão direito** (ou `Control + Clique`) no ícone do aplicativo na pasta Aplicativos.
+   * Selecione **Abrir (Open)** no menu de contexto.
+   * Um aviso de segurança aparecerá. Clique no botão **Abrir (Open)** para confirmar a execução.
+   * Nas execuções seguintes, basta dar o duplo clique normal para abrir o aplicativo.
+
+### Windows
+1. Baixe o instalador `.msi` ou `.exe` (NSIS) gerado na Release/Artifacts.
+2. Execute o arquivo e siga as instruções na tela para concluir a instalação.
